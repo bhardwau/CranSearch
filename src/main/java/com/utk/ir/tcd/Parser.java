@@ -19,6 +19,7 @@ public class Parser {
 		
 	}
 	
+// Parsing documents on the basis of index
 	public void documents() throws IOException{
 		ClassLoader classloader = new SearchEngine().getClass().getClassLoader();
 		InputStream is = new FileInputStream(classloader.getResource("cran.all.1400").getFile());
@@ -46,6 +47,7 @@ public class Parser {
 		br.close();
 	}
 	
+	//function to make documents on the basis of Authors, title, and description text
     public Cranfield makeDoc(int idx) throws IOException {
         FileReader fr = new FileReader(new File(pathDocs + File.separator + "cran.doc_ID" + idx +".txt") );
         BufferedReader br = new BufferedReader(fr);
@@ -94,7 +96,7 @@ public class Parser {
         return new Cranfield(currentId, title.toString(), authors.toString(), biblo.toString(), desc.toString());
     }
 	
-    
+   // Creating queries on the basis of index and query 
     public void createQueries() throws IOException {
     	ClassLoader classloader = new SearchEngine().getClass().getClassLoader();
 		InputStream is = new FileInputStream(classloader.getResource("cran.qry").getFile());

@@ -19,11 +19,13 @@ public class SearchEngine {
 		Parser par = new Parser(docs_path,queries_path_directory);
 		Indexer indx = new Indexer();
 		
+		//calling indexing open function to initilize analyzer and scoring methods
 		indx.open();
 		par.documents();
 		File docsDirectory = new File(docs_path);
 		File[] filesDoc =  docsDirectory.listFiles();
 		
+		//indexing documents
 		int count = 0 ;
 		 for (File file : Objects.requireNonNull(filesDoc)) {
 	            if (file.isFile()) {
@@ -38,7 +40,7 @@ public class SearchEngine {
 		 File[] filesQuery =  queryDirectory.listFiles();
 		 FileWriter res = new FileWriter(results_path);
 		 int count1 = 1;
-		 
+		 //querying documents and storing the result in the results file
 	       while (count1 < Objects.requireNonNull(filesQuery).length) {
 	            queryDocs query = par.queryMaker(count1++);
 	            String result = "";

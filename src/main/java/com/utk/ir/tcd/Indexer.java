@@ -42,7 +42,7 @@ public class Indexer {
 	private IndexWriter indexw;
 	private static CharArraySet stopWordSet = new CharArraySet(1000, true);
 	
-
+//Function to initilize indexing 
     public void open() throws IOException {
         
     	ClassLoader classloader = new SearchEngine().getClass().getClassLoader();
@@ -60,7 +60,8 @@ public class Indexer {
          EnglishAnalyzer analyzer = new EnglishAnalyzer(stopWordSet);
 
     	Directory directory = FSDirectory.open(Paths.get(INDEX_DIRECTORY));
-        Similarity similarity[] = {
+    // using Boolean and vector spaced model scoring    
+    	Similarity similarity[] = {
                 new BM25Similarity(),
                 new ClassicSimilarity()
 
@@ -98,7 +99,7 @@ public class Indexer {
         bufferedReader.close();
         EnglishAnalyzer analyzer = new EnglishAnalyzer(stopWordSet);
         
-//        Analyzer analyzer = new EnglishAnalyzer(stopWordSet);
+
         QueryParser queryParser = new MultiFieldQueryParser(fields, analyzer);
         Query query = queryParser.parse(queryString);
         TopDocs topDocs = indexSearcher.search(query, 1000);
@@ -114,7 +115,7 @@ public class Indexer {
         return resultDocs;
     }
 	
-	
+// Indexing documents and storing it in the document	
 	public void indexingDocuments(Cranfield crans) throws IOException{
 		
         
@@ -132,6 +133,7 @@ public class Indexer {
        
 	}
 	
+// Closing index writer
     public void close() throws IOException {
         indexw.close();
     }
