@@ -34,7 +34,7 @@ import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.document.TextField;
 import org.apache.lucene.analysis.en.EnglishAnalyzer;
 
-public class Indexer {
+public class Searcher {
 	
 	
 	private static String INDEX_DIRECTORY = "./Docs/index";
@@ -45,7 +45,7 @@ public class Indexer {
 //Function to initilize indexing 
     public void open() throws IOException {
         
-    	ClassLoader classloader = new SearchEngine().getClass().getClassLoader();
+    	ClassLoader classloader = new MainCranSearcher().getClass().getClassLoader();
 		InputStream is = new FileInputStream(classloader.getResource(stop_words).getFile());
     	 
     	 InputStreamReader inputStreamReader = new InputStreamReader(is);
@@ -87,7 +87,7 @@ public class Indexer {
         String fields[] = {"Title", "Description"};
         String queryString = QueryParser.escape(cranQuery);
         
-    	ClassLoader classloader = new SearchEngine().getClass().getClassLoader();
+    	ClassLoader classloader = new MainCranSearcher().getClass().getClassLoader();
 		InputStream is = new FileInputStream(classloader.getResource(stop_words).getFile());
         
    	 	InputStreamReader inputStreamReader = new InputStreamReader(is);

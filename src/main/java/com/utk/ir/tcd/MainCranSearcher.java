@@ -8,7 +8,7 @@ import java.util.Objects;
 import org.apache.lucene.queryparser.classic.ParseException;
 
 
-public class SearchEngine {
+public class MainCranSearcher {
 
 	public static void main(String[] args) throws IOException, ParseException{
 		// TODO Auto-generated method stub
@@ -17,7 +17,7 @@ public class SearchEngine {
 		String results_path = "./Docs/results";
 		
 		Parser par = new Parser(docs_path,queries_path_directory);
-		Indexer indx = new Indexer();
+		Searcher indx = new Searcher();
 		
 		//calling indexing open function to initilize analyzer and scoring methods
 		indx.open();

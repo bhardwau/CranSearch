@@ -1,5 +1,7 @@
 package com.utk.ir.tcd;
 
+// A class for storing the results fields.
+
 public class UIComponents {
 
     private String id;

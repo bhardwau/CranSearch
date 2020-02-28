@@ -1,5 +1,5 @@
 package com.utk.ir.tcd;
-import com.utk.ir.tcd.SearchEngine;
+import com.utk.ir.tcd.MainCranSearcher;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -21,7 +21,7 @@ public class Parser {
 	
 // Parsing documents on the basis of index
 	public void documents() throws IOException{
-		ClassLoader classloader = new SearchEngine().getClass().getClassLoader();
+		ClassLoader classloader = new MainCranSearcher().getClass().getClassLoader();
 		InputStream is = new FileInputStream(classloader.getResource("cran.all.1400").getFile());
 		InputStreamReader isr = new InputStreamReader(is);
 	
@@ -98,7 +98,7 @@ public class Parser {
 	
    // Creating queries on the basis of index and query 
     public void createQueries() throws IOException {
-    	ClassLoader classloader = new SearchEngine().getClass().getClassLoader();
+    	ClassLoader classloader = new MainCranSearcher().getClass().getClassLoader();
 		InputStream is = new FileInputStream(classloader.getResource("cran.qry").getFile());
     	InputStreamReader isr = new InputStreamReader(is);
        
