@@ -38,15 +38,16 @@ public class Indexer {
 	
 	
 	private static String INDEX_DIRECTORY = "./docs/index";
-	private static String stop_words = "C:/docs/stopwords/stopwords.txt";
+	private static String stop_words = "stopwords.txt";
 	private IndexWriter indexw;
 	private static CharArraySet stopWordSet = new CharArraySet(1000, true);
 	
 
     public void open() throws IOException {
         
-    
-    	 InputStream is = new FileInputStream(stop_words);
+    	ClassLoader classloader = new SearchEngine().getClass().getClassLoader();
+		InputStream is = new FileInputStream(classloader.getResource(stop_words).getFile());
+    	 
     	 InputStreamReader inputStreamReader = new InputStreamReader(is);
          BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
          
@@ -85,8 +86,9 @@ public class Indexer {
         String fields[] = {"Title", "Description"};
         String queryString = QueryParser.escape(cranQuery);
         
-   
-        InputStream is = new FileInputStream(stop_words);
+    	ClassLoader classloader = new SearchEngine().getClass().getClassLoader();
+		InputStream is = new FileInputStream(classloader.getResource(stop_words).getFile());
+        
    	 	InputStreamReader inputStreamReader = new InputStreamReader(is);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         
