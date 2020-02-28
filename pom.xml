@@ -2,7 +2,16 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.utk.ir.tcd</groupId>
   <artifactId>CranSearch</artifactId>
+  <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
+  <name>CranSearch</name>
+   <url>http://maven.apache.org</url>
+     <properties>
+    <!-- https://maven.apache.org/general.html#encoding-warning -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
   <dependencies>
   	<dependency>
   		<groupId>org.apache.lucene</groupId>
