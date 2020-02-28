@@ -7,7 +7,7 @@ public class Cranfield {
 	private String biblo;
 	private String description;
 	
-// A Cranfield class for storing the index,title,authors,references and description
+// A class for storing the index,title,authors,references and description
 	public Cranfield(String idx, String title, String authors, String biblo, String description ) {
 		this.idx = idx;
 		this.title = title;

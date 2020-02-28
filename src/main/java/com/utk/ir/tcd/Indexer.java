@@ -73,7 +73,7 @@ public class Indexer {
         indexw = new IndexWriter(directory, config);
     }
 	
-    
+   // Search function for searching the queries over indexed documents 
 	public ArrayList<UIComponents> search(String cranQuery) throws IOException, ParseException {
         DirectoryReader indexReader = DirectoryReader.open(FSDirectory.open(Paths.get(INDEX_DIRECTORY)));
         IndexSearcher indexSearcher = new IndexSearcher(indexReader);
