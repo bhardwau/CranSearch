@@ -37,7 +37,7 @@ import org.apache.lucene.analysis.en.EnglishAnalyzer;
 public class Indexer {
 	
 	
-	private static String INDEX_DIRECTORY = "./docs/index";
+	private static String INDEX_DIRECTORY = "./Docs/index";
 	private static String stop_words = "stopwords.txt";
 	private IndexWriter indexw;
 	private static CharArraySet stopWordSet = new CharArraySet(1000, true);
